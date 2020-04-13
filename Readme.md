@@ -1,15 +1,18 @@
 # TestTechnique dockorized
 
+## launch the webservice
+Execute the following command:
 
-## lunch the webservice
+> make 
 
-Executing:
-- cd source/
-- git clone https://github.com/pivox/WebServiceForTechnicalTest.git
-- git clone https://github.com/pivox/TechnicalTest.git
-- 
-- Open a terminal and execute: 
-docker exec -ti php-console php main.php title=customTitle status=draft cahnnel=bot
+## Run unit test 
+
+docker exec -ti sf-console vendor/bin/simple-phpunit
+
+## Run a functional test 
+
+> docker exec -ti php-console bin/behat 
+
 
 
 
