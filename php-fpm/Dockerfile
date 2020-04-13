@@ -34,3 +34,4 @@ WORKDIR /var/www
 COPY boot.sh /tools/boot.sh
 
 CMD ["/tools/boot.sh"]
+EXPOSE 9000
