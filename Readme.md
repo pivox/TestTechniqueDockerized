@@ -3,13 +3,14 @@
 
 ## lunch the webservice
 
-Executing:
-- cd source/
-- git clone https://github.com/pivox/WebServiceForTechnicalTest.git
-- git clone https://github.com/pivox/TechnicalTest.git
-- 
-- Open a terminal and execute: 
-docker exec -ti php-console php main.php title=customTitle status=draft cahnnel=bot
+Execute the following command:
+git clone https://github.com/pivox/TestTechniqueDockerized.git
+cd source/
+git clone https://github.com/pivox/WebServiceForTechnicalTest.git
+git clone https://github.com/pivox/TechnicalTest.git
+cd ..
+docker-compose build --pull
+docker-compose up
 
 
 
