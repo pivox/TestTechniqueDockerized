@@ -1,6 +1,5 @@
 # TestTechnique dockorized
 
-
 ## lunch the webservice
 Execute the following command:
 * git clone https://github.com/pivox/TestTechniqueDockerized.git
@@ -10,7 +9,12 @@ Execute the following command:
 * cd ..
 * docker-compose build --pull
 * docker-compose up -d
-* docker exec -ti sf-console php bin/console init-project
+
+## set up the project 
+
+docker exec -ti sf-console php bin/console init-project
+docker exec -ti php-console bin/behat --int
+
 
 
 
