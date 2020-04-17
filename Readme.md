@@ -12,8 +12,9 @@ Execute the following command:
 
 ## set up the project 
 
-docker exec -ti sf-console php bin/console init-project
-docker exec -ti php-console bin/behat --int
+> docker exec -ti sf-console php bin/console init-project
+>
+> docker exec -ti php-console bin/behat --int
 
 
 
