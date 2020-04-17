@@ -4,6 +4,7 @@ RUN set -ex \
     postgresql-dev 
 RUN docker-php-ext-install pdo_pgsql 
 COPY --from=composer /usr/bin/composer /usr/bin/composer
+USER www-data:www-data
 WORKDIR /var/www
-CMD composer install ; php-fpm
+CMD composer install ; vendor/bin/simple-phpunit ; php-fpm
 EXPOSE 9000

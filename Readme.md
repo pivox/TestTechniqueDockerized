@@ -10,11 +10,17 @@ Execute the following command:
 * docker-compose build --pull
 * docker-compose up -d
 
-## set up the project 
+## set up the project
 
 > docker exec -ti sf-console php bin/console init-project
->
-> docker exec -ti php-console bin/behat --int
+
+## Run unit test 
+
+docker exec -ti sf-console vendor/bin/simple-phpunit
+
+## Run unit test 
+
+> docker exec -ti php-console bin/behat 
 
 
 
