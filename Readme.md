@@ -18,7 +18,7 @@ Execute the following command:
 
 docker exec -ti sf-console vendor/bin/simple-phpunit
 
-## Run unit test 
+## Run a functional test 
 
 > docker exec -ti php-console bin/behat 
 
