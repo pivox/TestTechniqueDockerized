@@ -8,7 +8,7 @@ php-sf-container := $(dc-run-user) --workdir="/var/www" php-fpm
 php-console-container := $(dc-run-user) --workdir="/var/www" php-webservice
 php-sf := $(php-sf-container) php
 sf-command := $(php-sf-container) php bin/console
-php-console := $(php-sf-container) php
+php-console := $(php-console-container) php
 xdebug-console := $(php-console-container) xdebug
 xdebug-sf := $(php-sf-container) xdebug
 
@@ -47,15 +47,23 @@ vendor-sf-update: source/TechnicalTest/composer.json
 	$(php-sf-container) composer update --prefer-dist --no-suggest
 	@touch source/TechnicalTest
 
-autoload: source/WebServiceForTechnicalTest/autoload_files.php
+autoload: source/WebServiceForTechnicalTest/vendor/autoload.php
 	$(php-console-container) composer dump-autoload -o
 
 init-sf-project:
-	$(sf-command) doctrine:database:drop --force
+	$(sf-command) doctrine:database:drop --force --if-exists
 	$(sf-command) doctrine:database:create -n
-	$(sf-command) doctrine:migration:migrate --no-interaction
-	$(sf-command) doctrine:fixtures:load --no-interaction
+#	$(sf-command) doctrine:migration:migrate --no-interaction
+#	$(sf-command) doctrine:fixtures:load --no-interaction
 
+console-get-all:
+	$(php-console) main.php GET
+
+console-get-id-1:
+	$(php-console) main.php GET --id_question=1
+
+console-update-id-1:
+	$(php-console) main.php UPDATE --id=1
 
 inside-sf:
 	docker-compose exec php-fpm sh
