@@ -53,8 +53,8 @@ autoload: source/WebServiceForTechnicalTest/vendor/autoload.php
 init-sf-project:
 	$(sf-command) doctrine:database:drop --force --if-exists
 	$(sf-command) doctrine:database:create -n
-	$(sf-command) doctrine:migration:migrate --no-interaction
-	$(sf-command) doctrine:fixtures:load --no-interaction
+#	$(sf-command) doctrine:migration:migrate --no-interaction
+#	$(sf-command) doctrine:fixtures:load --no-interaction
 
 console-get-all:
 	$(php-console) main.php GET

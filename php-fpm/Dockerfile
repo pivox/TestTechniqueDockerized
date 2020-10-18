@@ -6,8 +6,7 @@ RUN apk add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/co
         make \
       && pecl install xdebug-2.9.5 \
       && apk --no-cache add \
-      postgresql-dev \
-      && docker-php-ext-install pdo_pgsql \
+      && docker-php-ext-install pdo pdo_mysql \
       && docker-php-ext-enable \
         xdebug \
       # composer
