@@ -53,20 +53,25 @@ autoload: source/WebServiceForTechnicalTest/vendor/autoload.php
 init-sf-project:
 	$(sf-command) doctrine:database:drop --force --if-exists
 	$(sf-command) doctrine:database:create -n
-	$(sf-command) doctrine:migration:migrate --no-interaction
-	$(sf-command) doctrine:fixtures:load --no-interaction
+	$(sf-command) doctrine:schema:create -n
+#	$(sf-command) doctrine:migration:migrate --no-interaction
+	$(sf-command) hautelook:fixtures:load --no-interaction --no-bundles
+
 
 console-get-all:
 	$(php-console) main.php GET
 
-console-get-id-1:
-	$(php-console) main.php GET --id_question=1
+console-get-by-question_id:
+	$(php-console) main.php GET --id_question=$(question_id)
 
-console-update-id-1:
-	$(php-console) main.php UPDATE --id=1
+console-update-by-question_id:
+	$(php-console) main.php UPDATE --id=$(question_id)
 
 inside-sf:
 	docker-compose exec php-fpm sh
 
 inside-webservice:
 	docker-compose exec php-webservice sh
+
+behat-webservice:
+	$(php-console) bin/behat

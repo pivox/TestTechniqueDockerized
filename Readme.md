@@ -6,12 +6,13 @@ Execute the following command:
 > make 
 
 ## Run unit test 
+To do be added
 
 docker exec -ti sf-console vendor/bin/simple-phpunit
 
 ## Run a functional test 
 
-> docker exec -ti php-console bin/behat 
+> make behat-webservice 
 
 
 
